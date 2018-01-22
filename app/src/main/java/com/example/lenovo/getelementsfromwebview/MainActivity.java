@@ -28,9 +28,18 @@ public class MainActivity extends AppCompatActivity {
         wv.setWebViewClient(new VideoWebViewClient());
         wv.getSettings().setUserAgentString(useragent);
         wv.loadUrl(url);
-        wv.setOnTouchListener(new View.OnTouchListener() {
+      /*  wv.setOnTouchListener(new View.OnTouchListener() {
 
             public boolean onTouch(View v, MotionEvent event) {
+                WebView.HitTestResult hr = ((WebView) v).getHitTestResult();
+
+                Log.i(TAG, "get extra " + hr.getExtra()+ " lll: "+ hr.getType());
+                return false;
+            }
+        });*/
+        wv.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
                 WebView.HitTestResult hr = ((WebView) v).getHitTestResult();
 
                 Log.i(TAG, "get extra " + hr.getExtra()+ " lll: "+ hr.getType());
